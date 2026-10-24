@@ -38,7 +38,7 @@ class_id x_center y_center width height
 
 | Field / 字段 | Meaning / 含义 |
 | --- | --- |
-| `class_id` | `0` or `1`; both mean UAV / `0` 或 `1`，均为无人机 |
+| `class_id` | Always `0`, meaning UAV / 固定为 `0`，表示无人机 |
 | `x_center` | Horizontal center divided by image width / 中心横坐标除以图像宽度 |
 | `y_center` | Vertical center divided by image height / 中心纵坐标除以图像高度 |
 | `width` | Box width divided by image width / 框宽除以图像宽度 |
@@ -51,7 +51,7 @@ This follows the normalized `xywh` convention described in the [Ultralytics YOLO
 Example from `labels/video25/frame-000001.txt` / 实际标注示例：
 
 ```text
-1 0.456982 0.441584 0.085176 0.131808
+0 0.456982 0.441584 0.085176 0.131808
 ```
 
 For image dimensions `W × H`, convert to pixel-space corners with:
@@ -67,18 +67,17 @@ y_max = (y_center + height / 2) * H
 
 ## Class IDs / 类别编号
 
-The creator confirms that **both IDs mean UAV / drone**. The release preserves the source labels:
+NF-UAVTrack is a **single-class, single-target dataset**. Its only class is **UAV / drone**, and all labels use ID `0`:
 
-作者确认 **两个编号均表示无人机**。本次发布保留原始标注：
+NF-UAVTrack 是**单类别、单目标数据集**，唯一类别为**无人机**，全部标注使用编号 `0`：
 
-| Original ID / 原编号 | Category / 类别 | Boxes / 框数 |
+| Class ID / 类别编号 | Category / 类别 | Boxes / 框数 |
 | ---: | --- | ---: |
-| 0 | UAV / 无人机 | 10,253 |
-| 1 | UAV / 无人机 | 683 |
+| 0 | UAV / 无人机 | 10,936 |
 
-For single-class training, map both IDs to `0` in a separate working copy, with one class name `uav`. Keep the original archive for reproducibility. IDs `0` and `1` are **not track identities**.
+Use one class named `uav` for training; no class-ID remapping is required. Each sequence concerns one UAV target, and each non-empty label file contains one bounding box. Class ID `0` is a category label, **not a track identity**.
 
-单类别训练时，请在另存的工作副本中将两个编号统一为 `0`，类别名称设为 `uav`，并保留原始压缩包以便复现。`0`、`1` **不是轨迹 ID**。
+训练时使用一个名为 `uav` 的类别即可，无需进行类别编号映射。每条序列对应一个无人机目标，每个非空标注文件包含一个目标框。`0` 是类别编号，**不是轨迹 ID**。
 
 ## Empty labels and evaluation / 空标注与评测
 

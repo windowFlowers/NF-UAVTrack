@@ -2,7 +2,7 @@
 
 English | **[中文说明（完整中文版）](README.zh-CN.md)**
 
-NF-UAVTrack is a dataset created by **caizhexuan (蔡喆炫)**, comprising **25 video sequences**, **12,127 extracted frames**, and **10,936 UAV bounding boxes**. This repository provides the download entry point, annotation documentation, and dataset statistics for researchers.
+NF-UAVTrack is a **single-class, single-target UAV dataset** created by **caizhexuan (蔡喆炫)**, comprising **25 video sequences**, **12,127 extracted frames**, and **10,936 UAV bounding boxes**. The only class is **UAV / drone**, with class ID **`0`**. This repository provides the download entry point, annotation documentation, and dataset statistics for researchers.
 
 | Sequences | Frames | Bounding boxes | Image resolutions |
 | ---: | ---: | ---: | --- |
@@ -54,10 +54,11 @@ sha256sum -c SHA256SUMS
 | Empty annotation files | 1,191 |
 | Download host | Baidu Netdisk |
 | Annotation format | YOLO-style normalized bounding boxes: `class_id x_center y_center width height` |
-| Class IDs | Both `0` and `1` represent **UAV / drone**; original IDs are preserved |
+| Dataset type | Single-class, single-target |
+| Class ID | `0` = **UAV / drone** (the only class) |
 | Train / validation / test split | No predefined split is included in the reference archive |
 
-**Class IDs:** there are 10,253 boxes with ID `0` and 683 with ID `1`. They refer to the same semantic category. For a single-class detector, map both IDs to `0` in a separate training copy. Do not interpret them as different object categories.
+**Annotations:** all 10,936 bounding boxes use class ID `0`; the current dataset contains no class `1` labels. Each sequence concerns a single UAV target. Each non-empty annotation file contains exactly one bounding box, while 1,191 frames have empty annotation files. No class-ID remapping is required for single-class training.
 
 **Tracking:** annotations contain per-frame bounding boxes, without object track IDs or visibility flags. No official tracking protocol or benchmark scores are provided.
 
