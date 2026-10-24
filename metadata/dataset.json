@@ -1,0 +1,49 @@
+{
+  "name": "NF-UAVTrack",
+  "creator": {
+    "name": "caizhexuan",
+    "name_zh": "蔡喆炫"
+  },
+  "repository": "https://github.com/windowFlowers/NF-UAVTrack",
+  "verified_on": "2026-10-24",
+  "sequence_count": 25,
+  "frame_count": 12127,
+  "label_file_count": 12127,
+  "box_count": 10936,
+  "empty_label_files": 1191,
+  "annotation_format": "YOLO normalized xywh",
+  "class_names": {
+    "0": "uav",
+    "1": "uav"
+  },
+  "class_box_counts": {
+    "0": 10253,
+    "1": 683
+  },
+  "original_class_ids_preserved": true,
+  "track_ids_included": false,
+  "predefined_split_included": false,
+  "license": null,
+  "resolutions": {
+    "3840x2160": 6163,
+    "1920x1080": 5964
+  },
+  "download": {
+    "provider": "Baidu Netdisk",
+    "url": "https://pan.baidu.com/s/1A8MSarxOYuQ89LD4CeQiXw?pwd=0854",
+    "extraction_code": "0854",
+    "hosted_copy_independently_verified": false
+  },
+  "reference_archive": {
+    "filename": "NF-UAVTrack.zip",
+    "bytes": 1225785649,
+    "sha256": "2aca3de05bb17d1cdc9f0dc6bdbb827087f381ef2236acb26bf6b4041c0055d4",
+    "contents": [
+      "images/",
+      "labels/"
+    ],
+    "original_videos_included": false,
+    "zip_crc_check_passed": true,
+    "matched_local_files": true
+  }
+}

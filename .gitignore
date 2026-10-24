@@ -1,0 +1,25 @@
+# Dataset files are distributed separately through the download link.
+/data/
+/datasets/
+/images/
+/labels/
+/videos/
+*.zip
+*.7z
+*.rar
+*.tar
+*.tar.gz
+*.mp4
+*.avi
+*.mov
+*.mkv
+
+# Local configuration and temporary files.
+.env
+.env.*
+.DS_Store
+Thumbs.db
+__pycache__/
+*.pyc
+.vscode/
+.idea/

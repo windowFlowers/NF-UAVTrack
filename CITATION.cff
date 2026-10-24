@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "Please cite this repository when referencing NF-UAVTrack. / 引用 NF-UAVTrack 时请注明作者与本仓库链接。"
+type: dataset
+title: NF-UAVTrack
+authors:
+  - family-names: Cai
+    given-names: Zhexuan
+    alias: caizhexuan
+repository-code: "https://github.com/windowFlowers/NF-UAVTrack"
+url: "https://github.com/windowFlowers/NF-UAVTrack"
+abstract: "NF-UAVTrack, created by caizhexuan (蔡喆炫), comprises 25 video sequences, 12127 extracted frames and 10936 UAV bounding boxes. The reference archive contains JPG frames and YOLO-style TXT annotations."
+keywords:
+  - NF-UAVTrack
+  - video dataset
+  - UAV
+  - object detection

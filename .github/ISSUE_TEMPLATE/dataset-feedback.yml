@@ -1,0 +1,26 @@
+name: Dataset question or feedback / 数据集问题与反馈
+description: Report download problems, ask about annotations, or share dataset feedback.
+body:
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category / 问题类型
+      options:
+        - Download / 下载
+        - Annotations or file structure / 标注或目录结构
+        - Usage terms / 使用条款
+        - Dataset feedback / 数据集反馈
+    validations:
+      required: true
+  - type: input
+    id: sequence
+    attributes:
+      label: File or sequence / 文件或视频序列
+      description: Include a filename if relevant. / 如涉及具体文件，请填写文件名。
+  - type: textarea
+    id: details
+    attributes:
+      label: Details / 详细说明
+      description: Describe your question or the problem you encountered. / 请描述你的问题。
+    validations:
+      required: true
