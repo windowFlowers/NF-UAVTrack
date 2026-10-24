@@ -1,4 +1,4 @@
-# NF-UAVTrack
+# NF-UAVTrack 数据集（中文说明）
 
 简体中文 | [English](README.md)
 
@@ -20,11 +20,11 @@ NF-UAVTrack 是由 **caizhexuan（蔡喆炫）** 创建的数据集，包含 **2
 
 | 下载平台 | 链接 | 提取码 |
 | --- | --- | --- |
-| 百度网盘 | [下载 NF-UAVTrack](https://pan.baidu.com/s/1A8MSarxOYuQ89LD4CeQiXw?pwd=0854) | `0854` |
+| 百度网盘 | [下载 NF-UAVTrack.zip](https://pan.baidu.com/s/1dzHpwilAFCqUif20WGW_OA?pwd=0854) | `0854` |
 
 1. 打开上方下载链接。
 2. 如页面要求输入提取码，请输入 `0854`。
-3. 从分享目录下载数据集。
+3. 下载分享文件 `NF-UAVTrack.zip` 并解压。
 
 参考压缩包 `NF-UAVTrack.zip` 包含 `images/` 下的 JPG 抽帧图像和 `labels/` 下的 TXT 标注，**不含原始视频文件**。克隆本仓库或点击 GitHub 的 **Download ZIP** 仅下载文档和两组预览样例，不会下载完整数据集。
 
@@ -41,6 +41,38 @@ Get-FileHash .\NF-UAVTrack.zip -Algorithm SHA256
 # Linux：在压缩包和 SHA256SUMS 所在目录运行
 sha256sum -c SHA256SUMS
 ```
+
+## 快速使用
+
+解压后，按视频序列名和文件名匹配图像与标注。例如：
+
+```text
+NF-UAVTrack/
+├── images/
+│   ├── video01/
+│   │   ├── frame-000001.jpg
+│   │   └── ...
+│   └── ...（共 25 个序列）
+└── labels/
+    ├── video01/
+    │   ├── frame-000001.txt
+    │   └── ...
+    └── ...（共 25 个序列）
+```
+
+非空 TXT 文件采用 YOLO 风格的五列标注：
+
+```text
+类别编号 中心横坐标 中心纵坐标 目标框宽度 目标框高度
+```
+
+后四项均为归一化数值：横坐标和框宽除以图像宽度，纵坐标和框高除以图像高度。以下为 `video25/frame-000001.txt` 的实际内容：
+
+```text
+1 0.456982 0.441584 0.085176 0.131808
+```
+
+类别 `0` 和 `1` 都表示无人机。单类别训练前，应在训练副本中统一编号；空标注文件的处理方式及训练、验证、测试的序列划分需在实验中明确记录。完整格式说明见[标注文档](docs/ANNOTATIONS.md)。
 
 ## 数据集信息
 

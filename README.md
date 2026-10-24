@@ -1,6 +1,6 @@
 # NF-UAVTrack
 
-[简体中文](README.zh-CN.md) | English
+English | **[中文说明（完整中文版）](README.zh-CN.md)**
 
 NF-UAVTrack is a dataset created by **caizhexuan (蔡喆炫)**, comprising **25 video sequences**, **12,127 extracted frames**, and **10,936 UAV bounding boxes**. This repository provides the download entry point, annotation documentation, and dataset statistics for researchers.
 
@@ -20,11 +20,11 @@ These are unmodified dataset frames. Their matching annotation files are include
 
 | Source | Link | Extraction code |
 | --- | --- | --- |
-| Baidu Netdisk | [Download NF-UAVTrack](https://pan.baidu.com/s/1A8MSarxOYuQ89LD4CeQiXw?pwd=0854) | `0854` |
+| Baidu Netdisk | [Download NF-UAVTrack.zip](https://pan.baidu.com/s/1dzHpwilAFCqUif20WGW_OA?pwd=0854) | `0854` |
 
 1. Open the download link above.
 2. Enter `0854` if prompted for an extraction code.
-3. Download the dataset from the shared folder.
+3. Download the shared `NF-UAVTrack.zip` archive and extract it.
 
 The reference archive `NF-UAVTrack.zip` contains extracted JPG frames and TXT annotations in `images/` and `labels/`; it does **not** contain the original video files. Cloning this repository or using GitHub's **Download ZIP** downloads the documentation and two preview samples, not the full dataset.
 
