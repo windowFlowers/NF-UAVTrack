@@ -79,14 +79,14 @@ Use one class named `uav` for training; no class-ID remapping is required. Each 
 
 训练时使用一个名为 `uav` 的类别即可，无需进行类别编号映射。每条序列对应一个无人机目标，每个非空标注文件包含一个目标框。`0` 是类别编号，**不是轨迹 ID**。
 
-## Empty labels and evaluation / 空标注与评测
+## Target-absent frames, split and evaluation / 目标消失帧、划分与评测
 
-- The reference archive contains 1,191 empty TXT files. These have matching images and no annotated boxes. The files do not encode the reason for the missing box.
+- The reference archive contains 1,191 empty TXT files, each with a matching image. An empty file marks a **target-absent frame**: the target has left the field of view or is not visible. 20 of the 25 videos contain such frames, in 108 separate absence intervals.
 - Each of the 10,936 non-empty label files contains exactly one box.
-- No object IDs, confidence scores, visibility flags, or occlusion attributes are stored in the TXT files.
-- No predefined training/validation/test split is included. Report your sequence-level split and annotation processing when publishing results.
+- No object IDs, confidence scores, visibility flags, or occlusion attributes are stored in the TXT files; target absence is given only by the empty files.
+- The official split uses 14 training and 11 test videos (see [splits/](../splits/) and the README). No test video contributes training samples. Report your split if you use a different one.
 
-- 参考压缩包中有 1,191 个空 TXT 文件，均有对应图像；空文件没有标注框，也没有记录原因。
+- 参考压缩包中有 1,191 个空 TXT 文件，均有对应图像。空文件表示**目标消失帧**，即目标离开视野或不可见。25 段视频中有 20 段含有这类帧，共 108 个消失区间。
 - 10,936 个非空标注文件均只有一个框。
-- TXT 文件没有保存目标轨迹 ID、置信度、可见性或遮挡属性。
-- 压缩包未提供预设训练、验证、测试划分；发表实验结果时，请说明使用的序列划分和标注处理方式。
+- TXT 文件没有保存目标轨迹 ID、置信度、可见性或遮挡属性；目标消失只由空文件表示。
+- 官方划分为 14 段训练视频和 11 段测试视频（见 [splits/](../splits/) 和 README），测试视频不提供训练样本。如使用其他划分，请在结果中说明。

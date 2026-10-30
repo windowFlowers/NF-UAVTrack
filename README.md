@@ -2,11 +2,11 @@
 
 English | **[中文说明（完整中文版）](README.zh-CN.md)**
 
-NF-UAVTrack is a **single-class, single-target UAV dataset** created by **caizhexuan (蔡喆炫)**, comprising **25 video sequences**, **12,127 extracted frames**, and **10,936 UAV bounding boxes**. The only class is **UAV / drone**, with class ID **`0`**. This repository provides the download entry point, annotation documentation, and dataset statistics for researchers.
+NF-UAVTrack is a **single-class, single-target visible-light UAV dataset** recorded **at night in fog**, created by **caizhexuan (蔡喆炫)**. It comprises **25 video sequences**, **12,127 extracted frames** and **10,936 UAV bounding boxes**; the remaining **1,191 frames are annotated as target-absent**. The only class is **UAV / drone**, with class ID **`0`**. This repository provides the download entry point, the official training/test split, annotation documentation and dataset statistics.
 
-| Sequences | Frames | Bounding boxes | Image resolutions |
-| ---: | ---: | ---: | --- |
-| 25 | 12,127 | 10,936 | 3840 × 2160 and 1920 × 1080 |
+| Sequences | Frames | Bounding boxes | Target-absent frames | Image resolutions |
+| ---: | ---: | ---: | ---: | --- |
+| 25 | 12,127 | 10,936 | 1,191 | 3840 × 2160 and 1920 × 1080 |
 
 ## Preview
 
@@ -26,7 +26,7 @@ These are unmodified dataset frames. Their matching annotation files are include
 2. Enter `0854` if prompted for an extraction code.
 3. Download the shared `NF-UAVTrack.zip` archive and extract it.
 
-The reference archive `NF-UAVTrack.zip` contains extracted JPG frames and TXT annotations in `images/` and `labels/`; it does **not** contain the original video files. Cloning this repository or using GitHub's **Download ZIP** downloads the documentation and two preview samples, not the full dataset.
+The reference archive `NF-UAVTrack.zip` contains extracted JPG frames and TXT annotations in `images/` and `labels/`; it does **not** contain the original video files. Cloning this repository or using GitHub's **Download ZIP** downloads the documentation, the split files and two preview samples, not the full dataset.
 
 Reference archive size: **1,225,785,649 bytes** (approximately 1.23 GB). Its SHA-256 is available in [SHA256SUMS](SHA256SUMS). The reference archive was checked locally; the hosted copy has not been independently verified.
 
@@ -42,6 +42,20 @@ Get-FileHash .\NF-UAVTrack.zip -Algorithm SHA256
 sha256sum -c SHA256SUMS
 ```
 
+## Official split
+
+The dataset is split by video into **14 training videos** and **11 test videos**. This is the split used in the accompanying paper; please use it when you compare results with that paper or with each other. No test video contributes training samples. The lists are also provided as plain-text files in [splits/](splits/).
+
+| Subset | Videos | Frames | Bounding boxes | Target-absent frames | List |
+| --- | ---: | ---: | ---: | ---: | --- |
+| Training | 14 | 7,426 | 6,645 | 781 | [splits/train.txt](splits/train.txt) |
+| Test | 11 | 4,701 | 4,291 | 410 | [splits/test.txt](splits/test.txt) |
+
+- **Training:** video01, video03, video04, video05, video06, video07, video10, video11, video12, video15, video17, video18, video21, video22
+- **Test:** video02, video08, video09, video13, video14, video16, video19, video20, video23, video24, video25
+
+No separate validation videos are defined in NF-UAVTrack. If you need a validation set, take it from the training videos (or from other datasets) and report which videos you used. If you use a different split, please report it.
+
 ## Dataset information
 
 | Field | Details |
@@ -51,22 +65,26 @@ sha256sum -c SHA256SUMS
 | Video sequences | 25 (`video01`–`video25`) |
 | Extracted frames / annotation files | 12,127 / 12,127, paired by filename |
 | Bounding boxes | 10,936 |
-| Empty annotation files | 1,191 |
+| Target-absent frames (empty annotation files) | 1,191 |
+| Imaging conditions | Night-time, foggy |
+| Acquisition devices | Xiaomi 12S; iPhone 15 Pro |
+| Acquisition location | Future Campus, Soochow University, Suzhou, Jiangsu, China |
+| Recording dates and time | April 2025 and April 2026; 23:00–01:00 the following day (China Standard Time, UTC+8) |
+| UAV models | YH F450; DJI Mavic 4 |
+| Annotation workflow | Two annotators labelled separate sets of videos and reviewed each other's annotations |
 | Download host | Baidu Netdisk |
 | Annotation format | YOLO-style normalized bounding boxes: `class_id x_center y_center width height` |
 | Dataset type | Single-class, single-target |
 | Class ID | `0` = **UAV / drone** (the only class) |
-| Train / validation / test split | No predefined split is included in the reference archive |
+| Train / test split | 14 / 11 videos, see [Official split](#official-split) |
 
-**Annotations:** all 10,936 bounding boxes use class ID `0`; the current dataset contains no class `1` labels. Each sequence concerns a single UAV target. Each non-empty annotation file contains exactly one bounding box, while 1,191 frames have empty annotation files. No class-ID remapping is required for single-class training.
+**Annotations:** all 10,936 bounding boxes use class ID `0`; the current dataset contains no class `1` labels. Each sequence concerns a single UAV target. Each non-empty annotation file contains exactly one bounding box. An empty annotation file marks a **target-absent frame**, in which the target has left the field of view or is not visible; 20 of the 25 videos contain such frames, in 108 separate absence intervals. No class-ID remapping is required for single-class training.
 
-**Tracking:** annotations contain per-frame bounding boxes, without object track IDs or visibility flags. No official tracking protocol or benchmark scores are provided.
+**Tracking:** annotations contain per-frame bounding boxes, without object track IDs. Target absence is given by the empty annotation files rather than by a separate visibility flag. A tracker is initialised on the first frame of a sequence that has a bounding box. The accompanying paper evaluates trackers on the 11 test videos together with test sequences from DDT, MAV-VID and DUT Anti-UAV, using one-pass evaluation with success AUC, precision at 20 pixels and normalized precision, and it also measures recovery after target absence; see the paper for the full protocol.
 
 - [Directory structure and annotation format / 标注格式](docs/ANNOTATIONS.md)
 - [Per-sequence statistics / 逐序列统计](docs/STATISTICS.md)
 - [Machine-readable statistics (CSV)](metadata/sequences.csv)
-
-For experiments, document your sequence-level split and treatment of empty labels. An empty TXT file records no annotated box; it does not by itself explain target absence, occlusion, or annotation policy.
 
 ## Usage terms
 
@@ -74,7 +92,7 @@ No dataset license has been selected yet. This initial publication provides a pu
 
 ## Citation
 
-When referencing this dataset, credit **caizhexuan (蔡喆炫)** and link to this repository. A repository citation is provided below; it is not a citation to a research paper.
+When referencing this dataset, credit **caizhexuan (蔡喆炫)** and link to this repository. A repository citation is provided below; a citation of the accompanying paper will be added after publication.
 
 ```bibtex
 @misc{caizhexuan_nf_uavtrack,
