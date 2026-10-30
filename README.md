@@ -4,6 +4,8 @@ English | **[中文说明（完整中文版）](README.zh-CN.md)**
 
 NF-UAVTrack is a **single-class, single-target visible-light UAV dataset** recorded **at night in fog**, created by **caizhexuan (蔡喆炫)**. It comprises **25 video sequences**, **12,127 extracted frames** and **10,936 UAV bounding boxes**; the remaining **1,191 frames are annotated as target-absent**. The only class is **UAV / drone**, with class ID **`0`**. This repository provides the download entry point, the official training/test split, annotation documentation and dataset statistics.
 
+> **The dataset is hosted on Hugging Face Hub:** [windowflower/NF-UAVTrack](https://huggingface.co/datasets/windowflower/NF-UAVTrack) — browsable file tree, no extraction code, and `git clone` support. See [Download](#download).
+
 | Sequences | Frames | Bounding boxes | Target-absent frames | Image resolutions |
 | ---: | ---: | ---: | ---: | --- |
 | 25 | 12,127 | 10,936 | 1,191 | 3840 × 2160 and 1920 × 1080 |
@@ -18,9 +20,24 @@ These are unmodified dataset frames. Their matching annotation files are include
 
 ## Download
 
-| Source | Link | Extraction code |
+| Source | Link | Access |
 | --- | --- | --- |
-| Baidu Netdisk | [Download NF-UAVTrack.zip](https://pan.baidu.com/s/1dzHpwilAFCqUif20WGW_OA?pwd=0854) | `0854` |
+| **Hugging Face Hub** (recommended) | [windowflower/NF-UAVTrack](https://huggingface.co/datasets/windowflower/NF-UAVTrack) | No extraction code; browse or download individual files |
+| Baidu Netdisk | [Download NF-UAVTrack.zip](https://pan.baidu.com/s/1dzHpwilAFCqUif20WGW_OA?pwd=0854) | Extraction code `0854` |
+
+Both sources provide the same data: `images/` with the JPG frames and `labels/` with the TXT annotations.
+
+**Option A — Hugging Face Hub**
+
+1. Open <https://huggingface.co/datasets/windowflower/NF-UAVTrack>.
+2. Browse or download single files from **Files and versions**, or clone the whole dataset:
+
+   ```sh
+   git lfs install
+   git clone https://huggingface.co/datasets/windowflower/NF-UAVTrack
+   ```
+
+**Option B — Baidu Netdisk**
 
 1. Open the download link above.
 2. Enter `0854` if prompted for an extraction code.
@@ -28,7 +45,7 @@ These are unmodified dataset frames. Their matching annotation files are include
 
 The reference archive `NF-UAVTrack.zip` contains extracted JPG frames and TXT annotations in `images/` and `labels/`; it does **not** contain the original video files. Cloning this repository or using GitHub's **Download ZIP** downloads the documentation, the split files and two preview samples, not the full dataset.
 
-Reference archive size: **1,225,785,649 bytes** (approximately 1.23 GB). Its SHA-256 is available in [SHA256SUMS](SHA256SUMS). The reference archive was checked locally; the hosted copy has not been independently verified.
+Reference archive size: **1,225,785,649 bytes** (approximately 1.23 GB). Its SHA-256 is available in [SHA256SUMS](SHA256SUMS). The reference archive was checked locally. The [Hugging Face copy](https://huggingface.co/datasets/windowflower/NF-UAVTrack) was compared against the extracted archive file by file: all 24,258 files match in count and size, and sampled files match in SHA-256.
 
 After downloading, compare the archive hash with `SHA256SUMS`:
 

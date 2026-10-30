@@ -4,6 +4,8 @@
 
 NF-UAVTrack 是由 **caizhexuan（蔡喆炫）** 创建的**单类别、单目标可见光无人机数据集**，全部在**夜间雾天**拍摄，包含 **25 条视频序列、12,127 张抽帧图像及 10,936 个无人机目标框**，其余 **1,191 帧标注为目标消失**。唯一类别为**无人机**，类别编号为 **`0`**。本仓库提供下载入口、官方训练/测试划分、标注说明和数据统计。
 
+> **数据集已发布在 Hugging Face Hub：** [windowflower/NF-UAVTrack](https://huggingface.co/datasets/windowflower/NF-UAVTrack) —— 可在线浏览文件、无需提取码，支持 `git clone`。详见[数据集下载](#数据集下载)。
+
 | 视频序列 | 图像帧 | 目标框 | 目标消失帧 | 图像分辨率 |
 | ---: | ---: | ---: | ---: | --- |
 | 25 | 12,127 | 10,936 | 1,191 | 3840 × 2160、1920 × 1080 |
@@ -18,9 +20,24 @@ NF-UAVTrack 是由 **caizhexuan（蔡喆炫）** 创建的**单类别、单目�
 
 ## 数据集下载
 
-| 下载平台 | 链接 | 提取码 |
+| 下载平台 | 链接 | 获取方式 |
 | --- | --- | --- |
-| 百度网盘 | [下载 NF-UAVTrack.zip](https://pan.baidu.com/s/1dzHpwilAFCqUif20WGW_OA?pwd=0854) | `0854` |
+| **Hugging Face Hub**（推荐） | [windowflower/NF-UAVTrack](https://huggingface.co/datasets/windowflower/NF-UAVTrack) | 无需提取码，可在线浏览或单独下载文件 |
+| 百度网盘 | [下载 NF-UAVTrack.zip](https://pan.baidu.com/s/1dzHpwilAFCqUif20WGW_OA?pwd=0854) | 提取码 `0854` |
+
+两个来源的数据完全相同，均为 `images/` 下的 JPG 抽帧图像和 `labels/` 下的 TXT 标注。
+
+**方式一：Hugging Face Hub**
+
+1. 打开 <https://huggingface.co/datasets/windowflower/NF-UAVTrack>。
+2. 在 **Files and versions** 中浏览或单独下载文件，或克隆整个数据集：
+
+   ```sh
+   git lfs install
+   git clone https://huggingface.co/datasets/windowflower/NF-UAVTrack
+   ```
+
+**方式二：百度网盘**
 
 1. 打开上方下载链接。
 2. 如页面要求输入提取码，请输入 `0854`。
@@ -28,7 +45,7 @@ NF-UAVTrack 是由 **caizhexuan（蔡喆炫）** 创建的**单类别、单目�
 
 参考压缩包 `NF-UAVTrack.zip` 包含 `images/` 下的 JPG 抽帧图像和 `labels/` 下的 TXT 标注，**不含原始视频文件**。克隆本仓库或点击 GitHub 的 **Download ZIP** 仅下载文档、划分文件和两组预览样例，不会下载完整数据集。
 
-参考压缩包大小为 **1,225,785,649 字节**（约 1.23 GB），SHA-256 校验值见 [SHA256SUMS](SHA256SUMS)。该参考压缩包已在本地校验，网盘中的副本尚未独立核实。
+参考压缩包大小为 **1,225,785,649 字节**（约 1.23 GB），SHA-256 校验值见 [SHA256SUMS](SHA256SUMS)。该参考压缩包已在本地校验；[Hugging Face 副本](https://huggingface.co/datasets/windowflower/NF-UAVTrack)已与解压后的参考数据逐文件比对：24,258 个文件的数量与大小完全一致，抽样文件的 SHA-256 相同。
 
 下载后可计算压缩包哈希值，并与 `SHA256SUMS` 比较：
 
