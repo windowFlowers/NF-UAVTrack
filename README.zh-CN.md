@@ -121,7 +121,8 @@ NF-UAVTrack/
 | 拍摄日期与时段 | 2025 年 4 月和 2026 年 4 月；23:00 至次日 01:00（北京时间，UTC+8） |
 | 无人机型号 | YH F450；DJI Mavic 4 |
 | 标注流程 | 两名标注员分别标注不同视频，并互相复核对方的标注 |
-| 下载平台 | 百度网盘 |
+| 下载平台 | Hugging Face Hub；百度网盘 |
+| 许可协议 | CC BY 4.0（[LICENSE](LICENSE)） |
 | 标注格式 | YOLO 风格的归一化目标框：`class_id x_center y_center width height` |
 | 数据集类型 | 单类别、单目标 |
 | 类别编号 | `0` = **无人机**（唯一类别） |
@@ -137,7 +138,12 @@ NF-UAVTrack/
 
 ## 使用条款
 
-数据集暂未选择许可证。本次发布提供公开下载入口，尚未授予通用的再利用或再分发许可。如需使用或再分发数据，请先通过 [GitHub Issues](https://github.com/windowFlowers/NF-UAVTrack/issues) 联系维护者，明确适用条款。
+NF-UAVTrack 采用 **知识共享 署名 4.0 国际许可协议（CC BY 4.0）** 发布。您可以复制、分发、改编本数据集，包括用于商业目的，但须注明出处、附上许可协议链接，并说明是否作了修改。完整条款见 [LICENSE](LICENSE)。
+
+建议的署名格式：
+
+> NF-UAVTrack（2025-2026），作者 caizhexuan（蔡喆炫）。
+> https://github.com/windowFlowers/NF-UAVTrack —— 依据 CC BY 4.0 授权。
 
 ## 引用
 

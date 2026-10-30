@@ -89,7 +89,8 @@ No separate validation videos are defined in NF-UAVTrack. If you need a validati
 | Recording dates and time | April 2025 and April 2026; 23:00–01:00 the following day (China Standard Time, UTC+8) |
 | UAV models | YH F450; DJI Mavic 4 |
 | Annotation workflow | Two annotators labelled separate sets of videos and reviewed each other's annotations |
-| Download host | Baidu Netdisk |
+| Download host | Hugging Face Hub; Baidu Netdisk |
+| License | CC BY 4.0 ([LICENSE](LICENSE)) |
 | Annotation format | YOLO-style normalized bounding boxes: `class_id x_center y_center width height` |
 | Dataset type | Single-class, single-target |
 | Class ID | `0` = **UAV / drone** (the only class) |
@@ -105,7 +106,12 @@ No separate validation videos are defined in NF-UAVTrack. If you need a validati
 
 ## Usage terms
 
-No dataset license has been selected yet. This initial publication provides a public download entry point; it does not establish a general reuse or redistribution license. Please contact the maintainer through [GitHub Issues](https://github.com/windowFlowers/NF-UAVTrack/issues) to clarify usage terms before reusing or redistributing the data.
+NF-UAVTrack is released under the **Creative Commons Attribution 4.0 International License (CC BY 4.0)**. You may share and adapt the data, including for commercial purposes, provided you give appropriate credit, link to the license, and indicate whether changes were made. See [LICENSE](LICENSE) for the full terms.
+
+Suggested attribution:
+
+> NF-UAVTrack (2025-2026), by caizhexuan (蔡喆炫).
+> https://github.com/windowFlowers/NF-UAVTrack — licensed under CC BY 4.0.
 
 ## Citation
 
