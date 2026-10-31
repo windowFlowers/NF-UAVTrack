@@ -2,7 +2,7 @@
 
 English | **[中文说明（完整中文版）](README.zh-CN.md)**
 
-NF-UAVTrack is a **single-class, single-target visible-light UAV dataset** recorded **at night in fog**, created by **caizhexuan (蔡喆炫)**. It comprises **25 video sequences**, **12,127 extracted frames** and **10,936 UAV bounding boxes**; the remaining **1,191 frames are annotated as target-absent**. The only class is **UAV / drone**, with class ID **`0`**. This repository provides the download entry point, the official training/test split, annotation documentation and dataset statistics.
+NF-UAVTrack is a **single-class, single-target visible-light UAV dataset** recorded **at night in fog**, created by **caizhexuan (蔡喆炫)**. It comprises **25 video sequences** covering **four scene types** and **two recording periods** (April 2025 and April 2026), with **12,127 extracted frames** and **10,936 UAV bounding boxes**; the remaining **1,191 frames are annotated as target-absent**. The only class is **UAV / drone**, with class ID **`0`**. This repository provides the download entry point, the official training/test split, annotation documentation and dataset statistics.
 
 > **The dataset is hosted on Hugging Face Hub:** [windowflower/NF-UAVTrack](https://huggingface.co/datasets/windowflower/NF-UAVTrack) — browsable file tree, no extraction code, and `git clone` support. See [Download](#download).
 
@@ -85,7 +85,7 @@ No separate validation videos are defined in NF-UAVTrack. If you need a validati
 | Target-absent frames (empty annotation files) | 1,191 |
 | Imaging conditions | Night-time, foggy |
 | Acquisition devices | Xiaomi 12S; iPhone 15 Pro |
-| Acquisition location | Future Campus, Soochow University, Suzhou, Jiangsu, China |
+| Acquisition location | Four different areas (four scene types) of the Future Campus, Soochow University, Suzhou, Jiangsu, China |
 | Recording dates and time | April 2025 and April 2026; 23:00–01:00 the following day (China Standard Time, UTC+8) |
 | UAV models | YH F450; DJI Mavic 4 |
 | Annotation workflow | Two annotators labelled separate sets of videos and reviewed each other's annotations |
