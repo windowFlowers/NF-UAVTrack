@@ -105,6 +105,10 @@ No separate validation videos are defined in NF-UAVTrack. If you need a validati
 - [Per-sequence statistics / 逐序列统计](docs/STATISTICS.md)
 - [Machine-readable statistics (CSV)](metadata/sequences.csv)
 
+## Code
+
+The code of the re-acquisition plug-in (RA) from the accompanying paper, the adapters for the eight host trackers and the evaluation scripts are in [RA/](RA/). See [RA/README.md](RA/README.md) for installation and usage. The code is released under the MIT License ([RA/LICENSE](RA/LICENSE)); the dataset licence below does not change.
+
 ## Usage terms
 
 NF-UAVTrack is released under the **Creative Commons Attribution 4.0 International License (CC BY 4.0)**. You may share and adapt the data, including for commercial purposes, provided you give appropriate credit, link to the license, and indicate whether changes were made. See [LICENSE](LICENSE) for the full terms.

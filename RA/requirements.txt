@@ -1,0 +1,20 @@
+# Core RA, evaluation and runner (versions used for the paper runs: Python 3.10, PyTorch 2.11 + CUDA 12.8)
+numpy>=1.24,<2
+opencv-python>=4.8
+torch>=2.0
+torchvision>=0.15
+# Detector cache (tools/build_yolo_cache.py): YOLOv12 is used through the Ultralytics API of
+# https://github.com/sunsmarterjie/yolov12 (install that repository: pip install -e <yolov12 clone>)
+# ultralytics
+# Host trackers: install the requirements of each official repository you use. The paper environment additionally had
+timm==0.9.16
+yacs
+easydict
+einops
+scipy
+pillow
+scikit-image
+imageio
+lmdb
+tifffile
+pyyaml

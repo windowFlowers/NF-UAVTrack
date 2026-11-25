@@ -1,0 +1,13 @@
+{
+ "fitted_multipliers": {
+  "pos": 0.35,
+  "vel": 4,
+  "meas": 0.35714285714285715
+ },
+ "deep_sort_base": {
+  "W_POS": 0.05,
+  "W_VEL": 0.00625
+ },
+ "fit_source": "rollouts/seed42 correct-tracking segments (train pool, source-disjoint)",
+ "pixel_threshold": 118.50120728104777
+}

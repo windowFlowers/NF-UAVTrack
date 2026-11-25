@@ -1,0 +1,22 @@
+{
+ "_note": "Host trackers and RA settings used in the paper. tau was selected per tracker on the validation split (configs/splits/val.txt) from {0.3,...,0.7}; accept = tau. All other RA constants are shared: variant soft, trigger conf, kappa0 (conf_min) 0.25, kappa1 0.5, gamma 135.856, L (gate_frames) 30, top-k 3. Paths are relative to the official repository clone.",
+ "ra_defaults": {"variant": "soft", "trigger": "conf", "conf_min": 0.25, "kappa1": 0.5, "gamma": 135.856, "gate_frames": 30, "topk": 3},
+ "trackers": {
+  "hiptrack":  {"name": "HIPTrack", "tau": 0.5, "repo": "https://github.com/WenRuiCai/HIPTrack", "commit": "371b75302720589c0d6fe214331f6827bc86f544",
+                "config": "experiments/hiptrack/hiptrack.yaml", "checkpoint": "official hiptrack_all_data.pth.tar (or a fine-tuned checkpoint)"},
+  "ostrack":   {"name": "OSTrack-384", "tau": 0.5, "repo": "https://github.com/botaoye/OSTrack",
+                "config": "experiments/ostrack/vitb_384_mae_ce_32x4_ep300.yaml", "checkpoint": "ModelScope damo/cv_vitb_video-single-object-tracking_ostrack pytorch_model.bin"},
+  "stark":     {"name": "STARK-ST50", "tau": 0.5, "repo": "https://github.com/researchmm/Stark",
+                "config": "experiments/stark_st2/baseline.yaml", "checkpoint": "STARKST_ep0050.pth.tar"},
+  "ortrack":   {"name": "ORTrack", "tau": 0.5, "repo": "https://github.com/wuyou3474/ORTrack", "commit": "ede2ed47f566b07f70fd5d81630597e05a54e96f",
+                "config": "experiments/ortrack/deit_tiny_patch16_224.yaml", "checkpoint": "official DeiT-tiny ORTrack checkpoint"},
+  "tctrackpp": {"name": "TCTrack++", "tau": 0.7, "repo": "https://github.com/vision4robotics/TCTrack", "commit": "a5f54fd0bab9a2de3d421f6e6a4a3fbabfc67b00",
+                "config": "experiments/TCTrack++/config.yaml", "checkpoint": "official TCTrack++ model"},
+  "mixformer": {"name": "MixFormerV2", "tau": 0.7, "repo": "https://github.com/MCG-NJU/MixFormerV2",
+                "config": "experiments/mixformer2_vit_online/288_depth8_score.yaml", "checkpoint": "mixformerv2_base.pth.tar"},
+  "siamrpn":   {"name": "SiamRPN++", "tau": 0.7, "repo": "https://github.com/STVIR/pysot",
+                "config": "experiments/siamrpn_r50_l234_dwxcorr/config.yaml", "checkpoint": "OpenMMLab/MMTracking SiamRPN++ R50 UAV123 checkpoint", "env": {"RA_TF32": "1 (used for the Anti-UAV runs)"}},
+  "siamrpnlt": {"name": "SiamRPN++ LT", "tau": 0.7, "repo": "https://github.com/STVIR/pysot",
+                "config": "experiments/siamrpn_r50_l234_dwxcorr_lt/config.yaml", "checkpoint": "PySOT model zoo siamrpn_r50_l234_dwxcorr_lt model.pth"}
+ }
+}

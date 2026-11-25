@@ -1,0 +1,14 @@
+{
+ "_note": "Rows of the RA plug-in table (52 test sequences). Run directories are relative to --runs-root and follow run_ra.py --output names <tracker>_none / <tracker>_soft_t<tau>. Rows are evaluated in this order with one random generator (seed 0).",
+ "rows": [
+  {"label": "HIPTrack", "base": "hiptrack_none", "ra": "hiptrack_soft_t{tau}", "tau": "0.5"},
+  {"label": "HIPTrack (fine-tuned)", "base": "hiptrack_ft_none", "ra": "hiptrack_ft_soft_t{tau}", "tau": "0.5"},
+  {"label": "OSTrack-384", "base": "ostrack_none", "ra": "ostrack_soft_t{tau}", "tau": "0.5"},
+  {"label": "STARK-ST50", "base": "stark_none", "ra": "stark_soft_t{tau}", "tau": "0.5"},
+  {"label": "ORTrack", "base": "ortrack_none", "ra": "ortrack_soft_t{tau}", "tau": "0.5"},
+  {"label": "TCTrack++", "base": "tctrackpp_none", "ra": "tctrackpp_soft_t{tau}", "tau": "0.7"},
+  {"label": "MixFormerV2", "base": "mixformer_none", "ra": "mixformer_soft_t{tau}", "tau": "0.7"},
+  {"label": "SiamRPN++", "base": "siamrpn_none", "ra": "siamrpn_soft_t{tau}", "tau": "0.7"},
+  {"label": "SiamRPN++ LT", "base": "siamrpnlt_none", "ra": "siamrpnlt_soft_t{tau}", "tau": "0.7"}
+ ]
+}
