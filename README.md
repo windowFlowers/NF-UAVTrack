@@ -2,7 +2,7 @@
 
 English | **[中文说明（完整中文版）](README.zh-CN.md)**
 
-NF-UAVTrack is a **single-class, single-target visible-light UAV dataset** recorded **at night in fog**, created by **caizhexuan (蔡喆炫)**. It comprises **25 video sequences** covering **four scene types** (open grassland, sports field, park and between buildings) and **two recording periods** (April 2025 and April 2026), with **12,127 extracted frames** and **10,936 UAV bounding boxes**; the remaining **1,191 frames are annotated as target-absent**. The only class is **UAV / drone**, with class ID **`0`**. This repository provides the download entry point, the official training/test split, annotation documentation and dataset statistics.
+NF-UAVTrack is a **single-class, single-target visible-light UAV dataset** recorded **at night**, created by **caizhexuan (蔡喆炫)**. It comprises **25 video sequences** from **seven scene areas** (three campus lawns, a sports field, a park outside the campus, between teaching buildings and a campus road), recorded in **seven sessions** with **three phones** in **April 2025, April 2026 and May 2026**. Fog was rated visually (not measured): 7 videos dense, 1 moderate, 1 light and 16 slight haze or clear air. The dataset has **12,127 extracted frames** and **10,936 UAV bounding boxes**; the remaining **1,191 frames are annotated as target-absent**. The only class is **UAV / drone**, with class ID **`0`**. This repository provides the download entry point, the official training/test split, annotation documentation and dataset statistics.
 
 > **The dataset is hosted on Hugging Face Hub:** [windowflower/NF-UAVTrack](https://huggingface.co/datasets/windowflower/NF-UAVTrack) — browsable file tree, no extraction code, and `git clone` support. See [Download](#download).
 
@@ -83,11 +83,12 @@ No separate validation videos are defined in NF-UAVTrack. If you need a validati
 | Extracted frames / annotation files | 12,127 / 12,127, paired by filename |
 | Bounding boxes | 10,936 |
 | Target-absent frames (empty annotation files) | 1,191 |
-| Imaging conditions | Night-time, foggy |
-| Acquisition devices | Xiaomi 12S; iPhone 15 Pro |
-| Acquisition location | Four different areas of the Future Campus, Soochow University, Suzhou, Jiangsu, China |
-| Scene types | Open grassland; sports field; park; between buildings (one scene type per area) |
-| Recording dates and time | April 2025 and April 2026; 23:00–01:00 the following day (China Standard Time, UTC+8) |
+| Imaging conditions | Night-time; fog rated visually (not measured): dense 7, moderate 1, light 1, slight haze or clear air 16 videos |
+| Acquisition devices | Xiaomi 12S (video01–09); iPhone 15 Pro (video10–14); OPPO Find X8 (video15–25) |
+| Acquisition location | Seven areas of the Future Campus of Soochow University and its surroundings, Suzhou, Jiangsu, China |
+| Scenes | Grassland A, B and C (three campus lawns); sports field; park outside the campus; between teaching buildings; campus road |
+| Recording sessions | S1–S7 (see [metadata/sequences_conditions.csv](metadata/sequences_conditions.csv)); split by video, so every test video shares a session with training videos |
+| Recording dates and time | April 2025 (video01–09), April 2026 (video10–19, 24, 25) and May 2026 (video20–23); 23:00–01:00 the following day (China Standard Time, UTC+8) |
 | UAV models | YH F450; DJI Mavic 4 |
 | Annotation workflow | Two annotators labelled separate sets of videos and reviewed each other's annotations |
 | Download host | Hugging Face Hub; Baidu Netdisk |
@@ -104,10 +105,15 @@ No separate validation videos are defined in NF-UAVTrack. If you need a validati
 - [Directory structure and annotation format / 标注格式](docs/ANNOTATIONS.md)
 - [Per-sequence statistics / 逐序列统计](docs/STATISTICS.md)
 - [Machine-readable statistics (CSV)](metadata/sequences.csv)
+- [Per-video acquisition conditions: split, device, session, UAV model, target appearance, scene, visual fog rating (CSV)](metadata/sequences_conditions.csv)
 
 ## Code
 
 The code of the re-acquisition plug-in (RA) from the accompanying paper, the adapters for the eight host trackers and the evaluation scripts are in [RA/](RA/). See [RA/README.md](RA/README.md) for installation and usage. The code is released under the MIT License ([RA/LICENSE](RA/LICENSE)); the dataset licence below does not change.
+
+## Release v1.1 (accompanying paper)
+
+[Release v1.1](https://github.com/windowFlowers/NF-UAVTrack/releases/tag/v1.1) provides the fine-tuned HIPTrack weights (seeds 42–46, and seed 42 trained without the clips that have near-duplicates in the test set), the seed-42 fine-tuned MixFormerV2 weights, three YOLOv12m detector weights (original, retrained without the flagged images, and retrained without Anti-UAV near-duplicates), the cached detections used by RA, the training-pool lists, the list of removed detector images and the near-duplicate matches, with SHA-256 checksums in the release notes. The detector training images are not redistributed because the source and licence of part of that collection could not be established.
 
 ## Usage terms
 
