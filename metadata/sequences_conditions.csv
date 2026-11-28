@@ -1,0 +1,26 @@
+sequence,split,resolution,frames,absent_frames,median_size_px,device,session,uav_model,target_appearance,scene,fog_rating_visual,recording_month
+video01,train,3840x2160,583,250,91.7,Xiaomi 12S,S1,YH F450,Varies,Grassland A,dense,2025-04
+video02,test,3840x2160,775,0,89.4,Xiaomi 12S,S1,YH F450,Silhouette,Grassland A,moderate,2025-04
+video03,train,3840x2160,2488,0,51.9,Xiaomi 12S,S1,YH F450,Silhouette,Grassland A,light,2025-04
+video04,train,3840x2160,443,42,153.5,Xiaomi 12S,S2,YH F450,Varies,Grassland B,dense,2025-04
+video05,train,3840x2160,296,63,85.4,Xiaomi 12S,S2,YH F450,Varies,Grassland B,dense,2025-04
+video06,train,3840x2160,335,231,60.2,Xiaomi 12S,S2,YH F450,Silhouette,Grassland B,dense,2025-04
+video07,train,3840x2160,566,9,108.0,Xiaomi 12S,S3,YH F450,Silhouette,Between buildings,dense,2025-04
+video08,test,3840x2160,157,17,153.3,Xiaomi 12S,S3,YH F450,Varies,Between buildings,dense,2025-04
+video09,test,3840x2160,520,43,133.0,Xiaomi 12S,S3,YH F450,Varies,Between buildings,dense,2025-04
+video10,train,1920x1080,300,1,36.4,iPhone 15 Pro,S4,DJI Mavic 4,LEDs only,Park,slight haze or clear air,2026-04
+video11,train,1920x1080,300,1,36.2,iPhone 15 Pro,S4,DJI Mavic 4,LEDs only,Park,slight haze or clear air,2026-04
+video12,train,1920x1080,300,12,37.9,iPhone 15 Pro,S4,DJI Mavic 4,LEDs only,Park,slight haze or clear air,2026-04
+video13,test,1920x1080,300,0,38.3,iPhone 15 Pro,S4,DJI Mavic 4,Varies,Park,slight haze or clear air,2026-04
+video14,test,1920x1080,499,125,39.7,iPhone 15 Pro,S4,DJI Mavic 4,Varies,Park,slight haze or clear air,2026-04
+video15,train,1920x1080,257,0,30.0,OPPO Find X8,S5,DJI Mavic 4,Silhouette,Park,slight haze or clear air,2026-04
+video16,test,1920x1080,375,141,46.9,OPPO Find X8,S6,DJI Mavic 4,Silhouette,Sports field,slight haze or clear air,2026-04
+video17,train,1920x1080,751,156,56.9,OPPO Find X8,S6,DJI Mavic 4,Varies,Sports field,slight haze or clear air,2026-04
+video18,train,1920x1080,193,7,55.0,OPPO Find X8,S6,DJI Mavic 4,Varies,Sports field,slight haze or clear air,2026-04
+video19,test,1920x1080,168,30,50.0,OPPO Find X8,S6,DJI Mavic 4,Varies,Sports field,slight haze or clear air,2026-04
+video20,test,1920x1080,814,19,39.5,OPPO Find X8,S7,DJI Mavic 4,Varies,Grassland C,slight haze or clear air,2026-05
+video21,train,1920x1080,319,9,35.0,OPPO Find X8,S7,DJI Mavic 4,Varies,Grassland C,slight haze or clear air,2026-05
+video22,train,1920x1080,295,0,34.6,OPPO Find X8,S7,DJI Mavic 4,Varies,Grassland C,slight haze or clear air,2026-05
+video23,test,1920x1080,149,23,31.4,OPPO Find X8,S7,DJI Mavic 4,Varies,Grassland C,slight haze or clear air,2026-05
+video24,test,1920x1080,261,7,54.9,OPPO Find X8,S6,DJI Mavic 4,Both,Campus road,slight haze or clear air,2026-04
+video25,test,1920x1080,683,5,84.7,OPPO Find X8,S6,DJI Mavic 4,Silhouette,Campus road,slight haze or clear air,2026-04
